@@ -78,6 +78,7 @@ public class MyNestedScrollChild extends LinearLayout implements NestedScrolling
     @Override
     public void scrollTo(int x, int y) {
         int maxY = getMeasuredHeight() - showHeight;
+//        maxY = getMeasuredHeight() - getHeight();
         if (y > maxY) {
             y = maxY;
         }

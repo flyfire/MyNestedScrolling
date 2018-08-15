@@ -117,7 +117,9 @@ public class MyNestedScrollParent extends LinearLayout implements NestedScrollin
     //下拉的时候是否要向下滚动以显示图片
     public boolean showImg(int dy) {
         if (dy > 0) {
-            if (getScrollY() > 0 && myNestedScrollChild.getScrollY() == 0) {
+            int scrollY = getScrollY();
+            int nestedScrollY = myNestedScrollChild.getScrollY();
+            if (scrollY > 0 && nestedScrollY == 0) {
                 return true;
             }
         }
@@ -128,7 +130,8 @@ public class MyNestedScrollParent extends LinearLayout implements NestedScrollin
     //上拉的时候，是否要向上滚动，隐藏图片
     public boolean hideImg(int dy) {
         if (dy < 0) {
-            if (getScrollY() < imgHeight) {
+            int scrollY = getScrollY();
+            if ( scrollY < imgHeight) {
                 return true;
             }
         }
